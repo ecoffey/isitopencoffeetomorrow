@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Eoin Coffey"]
-  s.date = "2012-07-06"
+  s.date = "2012-07-08"
   s.description = "Embedded sinatra app for answering the is it tomorrow question"
   s.email = "ecoffey@gmail.com"
   s.extra_rdoc_files = [
@@ -23,7 +23,11 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "isitopencoffeetomorrow.gemspec",
     "lib/isitopencoffeetomorrow.rb",
+    "lib/public/css/main.css",
+    "lib/views/index.erb",
+    "lib/views/index.haml",
     "test/helper.rb",
     "test/test_isitopencoffeetomorrow.rb"
   ]
