@@ -1,6 +1,6 @@
 = isitopencoffeetomorrow
 
-Description goes here.
+An embedded sinatra app for Open Coffee Club events.
 
 == Contributing to isitopencoffeetomorrow
  
