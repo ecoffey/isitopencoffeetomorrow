@@ -6,6 +6,7 @@ module IsItOpenCoffeeTomorrow
   class Application < Sinatra::Base
 
     def self.configure
+      set :skip_dates, []
       yield self
     end
 
@@ -31,6 +32,9 @@ module IsItOpenCoffeeTomorrow
       last_occ = now - diff_days_now
       next_occ = last_occ.advance(:days => 14)
 
+      last_occ = occ_from last_occ, :days => -14
+      next_occ = occ_from next_occ, :days => 14
+
       days_till_next_occ = (next_occ - now).to_i
       @days_till_next_occ =
         days_till_next_occ > 1 ? "#{days_till_next_occ} days" : "#{days_till_next_occ} day"
@@ -40,6 +44,16 @@ module IsItOpenCoffeeTomorrow
       @is_occ_tomorrow = diff_days_tomorrow == 0 ? "yes" : "no"
 
       erb :index
+    end
+
+    def occ_from occ_date, by
+      skip_dates = settings.skip_dates
+
+      while skip_dates.include? occ_date.strftime('%Y-%m-%d')
+        occ_date = occ_date.advance by
+      end
+
+      occ_date
     end
   end
 end
