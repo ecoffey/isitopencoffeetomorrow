@@ -20,6 +20,7 @@ module IsItOpenCoffeeTomorrow
       time_zone = settings.time_zone
       @hash_tag = settings.hash_tag
       @official_site = settings.official_site
+      @ga_token = settings.ga_token
 
       now = Time.now.utc.in_time_zone(time_zone).to_date
       tomorrow = now.tomorrow.to_date
